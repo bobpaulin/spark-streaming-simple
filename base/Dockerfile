@@ -36,5 +36,5 @@ RUN (ln -s /opt/spark-$SPARK_VERSION-bin-hadoop1 /opt/spark-$SPARK_VERSION && rm
 ADD files /root/spark_files
 
 RUN groupadd -r spark -g 433 && \
-useradd -u 431 -r -g spark -d /home/spark -s /sbin/nologin -c "Docker Spark image user" spark && \
-chown -R spark:spark /home/spark
+useradd -u 431 -r -g spark -d /opt/spark-$SPARK_VERSION -s /sbin/nologin -c "Docker Spark image user" spark && \
+chown -R spark:spark /opt/spark-$SPARK_VERSION
