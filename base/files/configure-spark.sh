@@ -1,4 +1,4 @@
-
+#!/bin/bash
 function create_spark_directories() {
   rm -rf /opt/spark-$SPARK_VERSION/work
   mkdir -p /opt/spark-$SPARK_VERSION/work
