@@ -1,7 +1,6 @@
-#!/bin/bash
 
 # Spark
-FROM spark-streaming-simple-base:1.1.0
+FROM bobpaulin/spark-streaming-simple-base:1.1.0
 MAINTAINER bobpaulin bob@bobpaulin.com
 # Instead of using a random port, bind the worker to a specific port
 ENV SPARK_WORKER_PORT 8888

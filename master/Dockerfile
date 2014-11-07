@@ -1,5 +1,5 @@
 # Spark
-FROM spark-streaming-simple-base:1.1.0
+FROM bobpaulin/spark-streaming-simple-base:1.1.0
 MAINTAINER bobpaulin bob@bobpaulin.com
 # Expose TCP ports 7077 8080
 EXPOSE 7077 8080
