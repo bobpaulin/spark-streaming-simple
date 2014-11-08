@@ -1,7 +1,7 @@
 Spark Streaming Simple Docker
 =====================================
 
-A simple docker Spark container without Hadoop.
+A simple docker Spark container without Hadoop.  Heavily based on the amplab docker images.
 
 ## Master
 
