@@ -2,12 +2,12 @@
 function create_spark_directories() {
   rm -rf /opt/spark-$SPARK_VERSION/work
   mkdir -p /opt/spark-$SPARK_VERSION/work
-  chown spark.spark /opt/spark-$SPARK_VERSION/work
+  chown spark:spark /opt/spark-$SPARK_VERSION/work
   mkdir /tmp/spark
-  chown spark.spark /tmp/spark
+  chown spark:spark /tmp/spark
   rm -rf /opt/spark-$SPARK_VERSION/logs
   mkdir -p /opt/spark-$SPARK_VERSION/logs
-  chown spark.spark /opt/spark-$SPARK_VERSION/logs
+  chown spark:spark /opt/spark-$SPARK_VERSION/logs
 }
 function deploy_spark_files() {
   cp /root/spark_files/spark-env.sh /opt/spark-$SPARK_VERSION/conf/
