@@ -11,7 +11,7 @@ WORKER_IMAGE_VERSION=1.1.0
 function start_master() {
     echo "starting master container"
     if [ "$DEBUG" -gt 0 ]; then
-        echo sudo docker run -d --dns $NAMESERVER_IP -h master${DOMAINNAME} $VOLUME_MAP $MASTER_IMAGE_NAME:$MASTER_IMAGE_VERSION
+        echo sudo docker run -d -p 8080:8080 -p 7077:7077 --dns $NAMESERVER_IP -h master${DOMAINNAME} $VOLUME_MAP $MASTER_IMAGE_NAME:$MASTER_IMAGE_VERSION
     fi
     MASTER=$(sudo docker run -d --dns $NAMESERVER_IP -h master${DOMAINNAME} $VOLUME_MAP $MASTER_IMAGE_NAME:$MASTER_IMAGE_VERSION)
 
