@@ -11,9 +11,9 @@ WORKER_IMAGE_VERSION=1.1.0
 function start_master() {
     echo "starting master container"
     if [ "$DEBUG" -gt 0 ]; then
-        echo sudo docker run -d -p 8080:8080 -p 7077:7077 --dns $NAMESERVER_IP -h master${DOMAINNAME} $VOLUME_MAP $MASTER_IMAGE_NAME:$MASTER_IMAGE_VERSION
+        echo sudo docker run -d --dns $NAMESERVER_IP -h master${DOMAINNAME} $VOLUME_MAP $MASTER_IMAGE_NAME:$MASTER_IMAGE_VERSION
     fi
-    MASTER=$(sudo docker run -d -p 8080:8080 -p 7077:7077 --dns $NAMESERVER_IP -h master${DOMAINNAME} $VOLUME_MAP $MASTER_IMAGE_NAME:$MASTER_IMAGE_VERSION)
+    MASTER=$(sudo docker run -d --dns $NAMESERVER_IP -h master${DOMAINNAME} $VOLUME_MAP $MASTER_IMAGE_NAME:$MASTER_IMAGE_VERSION)
 
     if [ "$MASTER" = "" ]; then
         echo "error: could not start master container from image $MASTER_IMAGE_NAME:$MASTER_IMAGE_VERSION"
@@ -57,7 +57,7 @@ function print_cluster_info() {
     echo "start shell via:            $1"
     echo ""
     echo "visit Spark WebUI at:       http://$MASTER_IP:8080/"
- #   echo "ssh into master via:        ssh -i $BASEDIR/apache-hadoop-hdfs-precise/files/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@${MASTER_IP}"
+    echo "ssh into master via:        ssh -i $BASEDIR/apache-hadoop-hdfs-precise/files/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@${MASTER_IP}"
     echo ""
     echo "/data mapped:               $VOLUME_MAP"
     echo ""

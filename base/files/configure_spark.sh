@@ -9,6 +9,12 @@ function create_spark_directories() {
   mkdir -p /opt/spark-$SPARK_VERSION/logs
   chown spark:spark /opt/spark-$SPARK_VERSION/logs
 }
+function deploy_ssh_files() {
+    cp /root/spark_files/id_rsa /root/.ssh
+    chmod go-rwx /root/.ssh/id_rsa
+    cp /root/spark_files/authorized_keys /root/.ssh/authorized_keys
+    chmod go-wx /root/.ssh/authorized_keys
+}
 function deploy_spark_files() {
   cp /root/spark_files/spark-env.sh /opt/spark-$SPARK_VERSION/conf/
   cp /root/spark_files/log4j.properties /opt/spark-$SPARK_VERSION/conf/
@@ -28,6 +34,7 @@ function create_ssh_directories() {
 
 function prepare_spark() {
   create_ssh_directories
+  deploy_ssh_files
   create_spark_directories
   deploy_spark_files
   configure_spark $1
