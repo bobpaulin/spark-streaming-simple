@@ -57,7 +57,7 @@ function print_cluster_info() {
     #echo "start shell via:            $1"
     echo ""
     echo "visit Spark WebUI at:       http://$MASTER_IP:8080/"
-    echo "ssh into master via:        ssh -i $BASEDIR/apache-hadoop-hdfs-precise/files/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@${MASTER_IP}"
+    echo "ssh into master via:        ssh -i $BASEDIR/base/files/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@${MASTER_IP}"
     echo ""
     echo "/data mapped:               $VOLUME_MAP"
     echo ""
