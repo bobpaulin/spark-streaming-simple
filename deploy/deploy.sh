@@ -70,4 +70,4 @@ until [[  "$NUM_REGISTERED_WORKERS" == "$NUM_WORKERS" ]]; do
     get_num_registered_workers
 done
 echo ""
-
+print_cluster_info
